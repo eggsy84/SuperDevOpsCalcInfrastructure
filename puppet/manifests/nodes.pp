@@ -9,7 +9,6 @@ node 'ip-172-31-5-66.eu-west-1.compute.internal' {
 		content => "Hello world\nPuppet Apply with Nodes", 
   }
   
-  package { 'nginx':
-    ensure => installed,
+  class { 'nginx': 
   }
 }
