@@ -31,7 +31,7 @@ class nginx {
   }
   
   file { '/var/www/puppetagent.dev/index.html':
-    source => 'puppet:///modules/nginx/index.html',
+    content => template('nginx/index.html.erb'),
     require => File['/var/www/puppetagent.dev'],
   }
 }
