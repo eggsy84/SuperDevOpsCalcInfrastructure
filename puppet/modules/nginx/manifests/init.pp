@@ -20,12 +20,6 @@ class nginx {
     require => Package['nginx'],
   }
   
-  file { '/etc/nginx/sites-enabled/puppetagent.dev':
-    source => 'puppet:///modules/nginx/puppetagent.dev.conf',
-    notify => Service['nginx'],
-    require => Package['nginx'],
-  }
-  
   file { ['/var/www', '/var/www/puppetagent.dev']:
     ensure => 'directory',
   }

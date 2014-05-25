@@ -1,3 +1,5 @@
 node 'puppetagent' {
-  include nginx
+  nginx::website {'puppetagent.dev':
+      site_domain => 'puppetagent.dev',
+  }
 }
