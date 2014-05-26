@@ -1,4 +1,4 @@
-
+include nginx
 
 node 'puppetagent' {
   
