@@ -1,9 +1,6 @@
-include nginx
 
 node 'puppetagent' {
-  
-  class {'nginx':
-    
-  }
-  
+  class { nginx:
+    site_domain => 'puppetagent.dev',
+  } 
 }

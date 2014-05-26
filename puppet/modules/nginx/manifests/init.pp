@@ -1,10 +1,14 @@
 class nginx ( 
-  $site_name    = 'james_puppet_site_name',  
-  $site_domain  = 'james_puppet_site_domain'
+  $site_domain
 ) {
   
-  class { '::nginx::install': } ->
-  class { '::nginx::config': }  ->
-  class { '::nginx::service': } ->
-  Class['nginx']
+  class { 'nginx::install': 
+    
+  }
+  class { 'nginx::config': 
+    domain      => $site_domain
+  } 
+  class { 'nginx::service': 
+    
+  }
 }

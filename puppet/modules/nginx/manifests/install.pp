@@ -3,7 +3,7 @@ class nginx::install {
   include nginx::params
   
   exec { $::nginx::params::exec_package_manager_update:
-    command => "",
+    command => $::nginx::params::exec_package_manager_update,
   }
   
   package { 'apache2.2-common':

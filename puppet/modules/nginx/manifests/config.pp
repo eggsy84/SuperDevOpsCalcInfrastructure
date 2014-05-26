@@ -1,19 +1,19 @@
-class nginx::config ( $site_domain ) {
+class nginx::config ( $domain ) {
+ 
+  $site_domain = $domain
   
-  $site_name = $name
-  
-  file { "/etc/nginx/sites-enabled/${site_name}.conf":
+  file { "/etc/nginx/sites-enabled/${site_domain}.conf":
     content => template('nginx/vhost.conf.erb'),
     notify => Service['nginx'],
     require => Package['nginx'],
   }
   
-  file { ["/var/www", "/var/www/${site_name}"]:
+  file { ["/var/www", "/var/www/${site_domain}"]:
     ensure => 'directory',
   }
   
-  file { "/var/www/${site_name}/index.html":
+  file { "/var/www/${site_domain}/index.html":
     content => template('nginx/index.html.erb'),
-    require => File["/var/www/${site_name}"],
+    require => File["/var/www/${site_domain}"],
   }
 }
