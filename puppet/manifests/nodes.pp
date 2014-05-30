@@ -1,10 +1,10 @@
 
-node 'puppetagent' {
-  class { nginx:
-    site_domain => 'puppetagent.dev',
+# Web Servers
+# RegEx matches www0, www1, www123 etc
+node /^web\d+\.eggsylife\.co\.uk/ {
+  
+  class {'webserver':
+    vhost => "${clientcert}",  
   }
   
-  /*class { puppetmaster:
-    
-  }*/
 }
