@@ -5,8 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-	config.vm.box = "puppet_ubuntu_12.04"
-	config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
+	config.vm.box = "hashicorp/precise64"
 	config.vm.synced_folder "puppet/", "/opt/puppet"
 
 	config.vm.provision "puppet" do |puppet|
